@@ -22,6 +22,7 @@ export const portfolio = {
         "The platform provides role-based dashboards and versioned REST APIs for placement workflows. HttpOnly JWT sessions, ownership-scoped MongoDB access, and FastAPI heuristics support secure operations and resume matching. A local synthetic-data benchmark measured an offer-history query optimization; it has not been deployed.",
       challenge:
         "Supporting student, recruiter, and TPO workflows while keeping access tied to each user’s role and records.",
+      githubUrl: "https://github.com/AbhayMall/PlaceMateAI",
       liveUrl: "https://placemateai-abhaymall9305-web.onrender.com/",
     },
     {
