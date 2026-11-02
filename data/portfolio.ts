@@ -12,51 +12,57 @@ export const portfolio = {
   projects: [
     {
       number: "01",
-      name: "Full-Stack Job Application Platform",
-      category: "Full-stack application",
+      name: "PlaceMate AI",
+      category: "Campus placement platform",
       summary:
-        "A MERN platform for publishing roles, discovering opportunities, and managing applications for candidates and recruiters.",
-      stack: ["MongoDB", "Express", "React", "Node.js", "JWT"],
-      flow: ["Candidate", "REST API", "Role checks", "MongoDB"],
+        "A campus recruitment platform for students, recruiters, and placement officers, covering job applications, resume analysis, interview scheduling, and TPO workflows.",
+      stack: ["React", "Node.js", "Express", "MongoDB", "FastAPI", "JWT"],
+      flow: ["Student / recruiter", "REST API", "FastAPI analysis", "MongoDB"],
       details:
-        "JWT authentication and role-based authorization protect candidate and recruiter workflows. The API uses schema-aware data models, request validation, shared middleware, and centralized error handling across CRUD operations.",
+        "The platform provides role-based dashboards and versioned REST APIs for placement workflows. HttpOnly JWT sessions, ownership-scoped MongoDB access, and FastAPI heuristics support secure operations and resume matching. A local synthetic-data benchmark measured an offer-history query optimization; it has not been deployed.",
       challenge:
-        "Keeping each role’s actions separate while allowing both sides to work with the same job and application records.",
+        "Supporting student, recruiter, and TPO workflows while keeping access tied to each user’s role and records.",
+      liveUrl: "https://placemateai-abhaymall9305-web.onrender.com/",
     },
     {
       number: "02",
-      name: "Document Intelligence RAG Assistant",
-      category: "Retrieval-augmented generation",
+      name: "Papertrail RAG Document Assistant",
+      category: "Document question answering",
       summary:
-        "A document question-answering assistant that retrieves relevant passages before asking a language model to form a response.",
-      stack: ["Python", "FastAPI", "LangChain", "FAISS", "Gemini API"],
-      flow: ["Upload", "Chunk", "Embed", "Retrieve", "Answer"],
+        "A document chatbot that answers questions across PDF, DOCX, CSV, Markdown, and text files with source and PDF page citations.",
+      stack: ["Python", "Streamlit", "OpenAI embeddings", "FAISS", "GPT-4o mini"],
+      flow: ["Upload", "Chunk", "FAISS search", "Cited answer"],
       details:
-        "The processing flow splits uploaded documents into chunks, creates embeddings, and stores them in FAISS. At question time, similarity search supplies relevant context to the generation step through FastAPI endpoints.",
+        "Parses uploaded files, recursively chunks text, indexes OpenAI embeddings in FAISS, and retrieves the top five passages for GPT-4o mini. Supports conversational follow-ups and source/page citations. The Streamlit app is hosted on Render Free; users enter their own API key per session.",
       challenge:
-        "Making answers grounded in the uploaded material by retrieving useful context before generation.",
+        "Keeping answers traceable to relevant passages in the documents provided by each user.",
+      githubUrl: "https://github.com/AbhayMall/papertrail-rag",
+      liveUrl: "https://papertrail-rag.onrender.com",
     },
     {
       number: "03",
-      name: "Distributed Rate Limiter",
-      category: "Systems programming",
+      name: "RateGuard Distributed Rate Limiter",
+      category: "Backend reliability",
       summary:
-        "A C++17 token-bucket rate limiter that uses Redis to coordinate request limits across server instances.",
-      stack: ["C++17", "Redis", "Multithreading", "Token bucket"],
-      flow: ["Request", "Limiter", "Redis state", "Allow / reject"],
+        "A Node.js API gateway with configurable token-bucket policies, atomic Redis state, fail-closed enforcement, and a telemetry dashboard.",
+      stack: ["Node.js", "Express", "Redis", "Lua", "React"],
+      flow: ["API request", "Gateway", "Redis Lua", "Allow / reject"],
       details:
-        "The design separates rate-limit decisions from request handling. Shared Redis state, atomic operations, and key expiration keep the bucket state consistent across concurrent workers.",
+        "Atomic Redis Lua operations coordinate shared request quotas across gateway instances. Policies can return HTTP 429 when limits are exceeded; the free public demo uses one gateway and a read-only dashboard. A displayed run recorded 4.24 ms gateway p95 latency; that observation is not a before/after benchmark.",
       challenge:
-        "Maintaining a single shared view of available tokens while requests arrive concurrently from different workers.",
+        "Keeping quota decisions consistent when concurrent requests reach separate gateway workers.",
+      githubUrl: "https://github.com/AbhayMall/distributed-rate-limiter",
+      liveUrl: "https://rateguard-dashboard.onrender.com",
     },
   ],
   skills: [
-    { title: "Backend", items: "Node.js · Express · FastAPI · REST APIs · JWT · Authentication" },
-    { title: "Data", items: "MongoDB · MySQL · Redis · SQL · Schema design · Indexing" },
+    { title: "Backend & APIs", items: "Node.js · Express · FastAPI · REST APIs · JWT · HTTP-only sessions · Authentication · Authorization · Validation" },
+    { title: "Databases & caching", items: "MongoDB · MySQL · Redis · SQL · Mongoose · Schema design · Indexing · Shared cache" },
     { title: "Languages", items: "C · C++ · Java · Python · JavaScript" },
-    { title: "AI applications", items: "RAG · Embeddings · FAISS · LangChain · LLM APIs" },
-    { title: "Frontend", items: "React · HTML · CSS" },
-    { title: "Foundations & tools", items: "DSA · OOP · DBMS · Git · Postman · Docker basics" },
+    { title: "AI & document retrieval", items: "RAG · OpenAI embeddings · FAISS · LangChain · LLM APIs · Prompt engineering · Source citations" },
+    { title: "Frontend", items: "React · HTML · CSS · Streamlit" },
+    { title: "CS foundations", items: "Data structures · Algorithms · OOP · DBMS · Operating systems · Computer networks · Multithreading" },
+    { title: "Development tools", items: "Git · GitHub · Postman · VS Code · npm · Docker basics · Python type hints · Async programming · API testing" },
   ],
   milestones: [
     { date: "2025", title: "Tekathon — first place", detail: "Smart Education category · Chandigarh University" },

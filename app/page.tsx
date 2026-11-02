@@ -20,7 +20,8 @@ export default function Home() {
             <p className="hero-intro">{portfolio.intro}</p>
             <div className="hero-actions">
               <a className="button button-dark" href="#projects">Explore selected work <ArrowDownRight size={16} aria-hidden="true" /></a>
-              <a className="button button-outline" href="/Abhay-Mall-Resume.pdf" download>Download resume <ArrowDown size={15} aria-hidden="true" /></a>
+              <a className="button button-outline" href="/Abhay-AI-Resume.pdf" download>AI resume <ArrowDown size={15} aria-hidden="true" /></a>
+              <a className="button button-outline" href="/Abhay-SDE-Resume.pdf" download>SDE resume <ArrowDown size={15} aria-hidden="true" /></a>
             </div>
             <div className="hero-links">
               <a href={portfolio.github} target="_blank" rel="noreferrer"><GitHubIcon size={16} /> GitHub <ArrowUpRight size={13} aria-hidden="true" /></a>
@@ -66,7 +67,7 @@ export default function Home() {
 
         <section className="section page-wrap" id="projects">
           <SectionLabel index="03">Selected projects</SectionLabel>
-          <div className="section-heading"><h2>Built to solve <em>real problems.</em></h2><p>Three projects across backend services, retrieval systems, and distributed request control. The diagrams are explanatory, not live product demos.</p></div>
+          <div className="section-heading"><h2>Built to solve <em>real problems.</em></h2><p>Recent work across campus placement systems, document retrieval, and backend request control. Open a project or its source to explore further.</p></div>
           <div className="project-grid">{portfolio.projects.map((project) => <article className="project-card" key={project.number}>
             <div className={`project-visual project-visual-${project.number}`} aria-hidden="true">
               <div className="project-visual-head"><span>{project.category}</span><span>{project.number}</span></div>
@@ -75,7 +76,10 @@ export default function Home() {
             </div>
             <div className="project-content"><div className="project-meta"><span>{project.number}</span><span>{project.category}</span></div><h3>{project.name}</h3><p>{project.summary}</p><div className="tag-list">{project.stack.map((tag) => <span key={tag}>{tag}</span>)}</div>
               <details className="project-details"><summary>Read the engineering notes <ArrowDownRight size={15} aria-hidden="true" /></summary><div className="details-body"><h4>Implementation</h4><p>{project.details}</p><h4>Problem to solve</h4><p>{project.challenge}</p></div></details>
-              <div className="project-links"><span>View GitHub profile</span><a href={portfolio.github} target="_blank" rel="noreferrer" aria-label="Visit Abhay’s GitHub profile"><GitHubIcon size={16} /><ArrowUpRight size={13} /></a></div>
+              <div className="project-links">
+                {"githubUrl" in project && project.githubUrl ? <a href={project.githubUrl} target="_blank" rel="noreferrer"><GitHubIcon size={16} /> Source <ArrowUpRight size={13} /></a> : null}
+                {"liveUrl" in project && project.liveUrl ? <a href={project.liveUrl} target="_blank" rel="noreferrer">Live project <ArrowUpRight size={13} /></a> : null}
+              </div>
             </div>
           </article>)}</div>
         </section>
@@ -92,7 +96,7 @@ export default function Home() {
 
         <section className="contact-section" id="contact"><div className="page-wrap contact-wrap">
           <SectionLabel index="06">Contact</SectionLabel>
-          <div className="contact-grid"><div><p className="eyebrow">Have a role or project in mind?</p><h2>Let’s start a <em>conversation.</em></h2><p className="body-copy">I’m open to conversations about software engineering opportunities, backend development, and the work behind a good system.</p><a className="email-link" href={`mailto:${portfolio.email}`}>{portfolio.email}<ArrowUpRight size={17} aria-hidden="true" /></a><div className="contact-details"><a href={`tel:${portfolio.phone.replaceAll(" ", "")}`}>{portfolio.phone}</a><span>·</span><span>{portfolio.location}</span></div><a className="button button-outline resume-contact" href="/Abhay-Mall-Resume.pdf" download>Download resume <ArrowDown size={15} /></a></div>
+          <div className="contact-grid"><div><p className="eyebrow">Have a role or project in mind?</p><h2>Let’s start a <em>conversation.</em></h2><p className="body-copy">I’m open to conversations about software engineering opportunities, backend development, and the work behind a good system.</p><a className="email-link" href={`mailto:${portfolio.email}`}>{portfolio.email}<ArrowUpRight size={17} aria-hidden="true" /></a><div className="contact-details"><a href={`tel:${portfolio.phone.replaceAll(" ", "")}`}>{portfolio.phone}</a><span>·</span><span>{portfolio.location}</span></div><div className="resume-links"><a className="button button-outline resume-contact" href="/Abhay-AI-Resume.pdf" download>AI resume <ArrowDown size={15} /></a><a className="button button-outline resume-contact" href="/Abhay-SDE-Resume.pdf" download>SDE resume <ArrowDown size={15} /></a></div></div>
             <div className="form-panel"><ContactForm /></div></div>
         </div></section>
       </main>

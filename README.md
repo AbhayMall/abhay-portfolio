@@ -23,4 +23,4 @@ Import this repository, keep the Next.js framework preset, configure the six env
 
 ## Updating content
 
-Edit `data/portfolio.ts`. The resume is served from `public/Abhay-Mall-Resume.pdf`.
+Edit `data/portfolio.ts` to update the bio, contact details, skills, projects, and education. The downloads `public/Abhay-SDE-Resume.pdf` and `public/Abhay-AI-Resume.pdf` are the two latest resumes supplied for the portfolio. Project visual flows are descriptive diagrams, not live demos or measured performance claims.

@@ -7,11 +7,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
 export const metadata: Metadata = {
   title: "Abhay Mall | Software Engineer & Backend Developer",
   description:
-    "Abhay Mall is a Computer Science student focused on backend engineering, full-stack applications, APIs, and practical AI systems.",
+    "Abhay Mall is a Computer Science student focused on backend engineering, REST APIs, full-stack applications, distributed rate limiting, and document AI.",
   ...(siteUrl ? { metadataBase: new URL(siteUrl), alternates: { canonical: "/" } } : {}),
   openGraph: {
     title: "Abhay Mall | Software Engineer & Backend Developer",
-    description: "Backend engineering, full-stack projects, and practical AI applications.",
+    description: "Backend engineering, campus placement systems, distributed rate limiting, and document AI projects.",
     type: "website",
     ...(siteUrl ? { url: siteUrl, images: ["/og-card.svg"] } : {}),
   },
